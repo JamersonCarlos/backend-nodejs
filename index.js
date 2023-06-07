@@ -21,6 +21,13 @@ app.post('/addbin', (req, res) => {
     ).catch((err) => console.log(err));
 });
 
+app.put('/update/:id', (req, res) => { 
+    const id = req.params.id;
+    const newAltura = req.body.update;
+    SmartBin.update({altura_lixo: newAltura}, {where: {identidade: id}}).then(
+        res.json({message: 'Atualizada com sucesso'})
+    ).catch((err) => console.log(err));    
+});
 
 conection.sync().then(
     app.listen(3000, () => { 
