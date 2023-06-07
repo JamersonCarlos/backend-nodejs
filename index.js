@@ -15,8 +15,11 @@ app.get('/allbins', (req, res) => {
     res.end(jsonResponse);
 });
 
-
-
+app.post('/addbin', (req, res) => { 
+    SmartBin.create(req.body).then(
+        res.json({message: 'Lixeira Adicionado com sucesso!'})
+    ).catch((err) => console.log(err));
+});
 
 
 conection.sync().then(
