@@ -41,7 +41,7 @@ app.put('/update/:identidade', (req, res) => {
 });
 
 conection.sync().then(
-    app.listen(3000, () => { 
+    app.listen(process.env.PORT, () => { 
         console.log('api rodando');
     })
 ).catch((err) => console.log(err));
