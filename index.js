@@ -34,7 +34,9 @@ app.post('/addbin', (req, res) => {
 
 app.put('/update/:identidade', (req, res) => { 
     const identidade = req.params.identidade;
+    print(req.body.update);
     const newAltura = req.body.update;
+    print(req.body);
     SmartBin.update({altura_lixo: newAltura}, {where: {identidade: identidade}}).then(
         res.json({message: 'Atualizada com sucesso'})
     ).catch((err) => console.log(err));    
