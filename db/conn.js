@@ -1,10 +1,10 @@
 const {Sequelize} = require('sequelize');
 require('dotenv').config();
 
-const sequelize = new Sequelize(process.env.DB_DBNAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, { 
-    port: process.env.DB_PORT, 
+const sequelize = new Sequelize("freedb_SmartBin", "freedb_user-mobile" , "x3P$Q*pU*#EMaKj", { 
+    port: 3306, 
     host: process.env.DB_HOST,
-    dialect: 'mysql',
+    dialect: "sql.freedb.tech",
 });
 
 

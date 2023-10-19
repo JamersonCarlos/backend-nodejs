@@ -2,14 +2,15 @@ const express = require('express');
 const app = express();
 const conection = require('./db/conn');
 const SmartBin = require('./models/smartBin');
-const admin = require('./firebase-config');
+// const admin = require('./firebase-config');
 
 app.use(express.json());
 
-const notification_options = {
-    priority: "high",
-    timeToLive: 60 * 60 * 24
-};
+// const notification_options = {
+//     priority: "high",
+//     timeToLive: 60 * 60 * 24
+// };
+
 app.get('/allbins', async (req, res) => { 
     const bins = await SmartBin.findAll({raw: true});
     const responseObject = { 
@@ -54,28 +55,28 @@ app.put('/updateDetection/:identidade', (req, res) => {
     ).catch((err) => console.log(err));
 });
 
-app.post('/firebase/notification', (req, res)=>{
-    const  registrationToken = req.body.registrationToken
-    const message = req.body.message
-    const options =  notification_options
-    const payload = {
-        'notification': {
-          'title': `just logged an event`,
-          'body': `${req.body.message}`,
-        }, 
-      };
+// app.post('/firebase/notification', (req, res)=>{
+//     const  registrationToken = req.body.registrationToken
+//     const message = req.body.message
+//     const options =  notification_options
+//     const payload = {
+//         'notification': {
+//           'title': `just logged an event`,
+//           'body': `${req.body.message}`,
+//         }, 
+//       };
 
-      admin.messaging().sendToDevice(registrationToken, payload, options)
-      .then( response => {
+//       admin.messaging().sendToDevice(registrationToken, payload, options)
+//       .then( response => {
 
-       res.status(200).send("Notification sent successfully")
+//        res.status(200).send("Notification sent successfully")
        
-      })
-      .catch( error => {
-          console.log(error);
-      });
+//       })
+//       .catch( error => {
+//           console.log(error);
+//       });
 
-})
+// })
 
 
 
