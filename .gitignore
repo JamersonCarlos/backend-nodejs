@@ -127,3 +127,5 @@ dist
 .pnp.*
 db/conn.js
 conn.js
+
+messagingService.json
