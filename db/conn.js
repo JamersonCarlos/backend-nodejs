@@ -1,8 +1,11 @@
 const {Sequelize} = require('sequelize');
-const sequelize = new Sequelize("freedb_smartbins", "freedb_iot_project", "9r$*Fxj$zTxhGA!", { 
-    port: 3306, 
-    host: "sql.freedb.tech",
+require('dotenv').config();
+
+const sequelize = new Sequelize(process.env.DB_DBNAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, { 
+    port: process.env.DB_PORT, 
+    host: process.env.DB_HOST,
     dialect: 'mysql',
 });
+
 
 module.exports = sequelize; 
