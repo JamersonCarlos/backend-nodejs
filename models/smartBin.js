@@ -24,6 +24,10 @@ const SmartBin = db.define('SmartBin', {
         type: DataTypes.FLOAT, 
         required: true,
     },
+    detectionMetano: { 
+        type: DataTypes.BOOLEAN, 
+        defaultValue: false, 
+    }
 });
 
 module.exports = SmartBin; 
