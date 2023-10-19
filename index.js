@@ -90,7 +90,7 @@ app.put('/updateDetection/:identidade', (req, res) => {
 // })
 
 conection.sync().then(
-    app.listen(3000, () => { 
+    app.listen(process.env.PORT || 3000, () => { 
         console.log('api rodando');
     })
 ).catch((err) => console.log(err));
