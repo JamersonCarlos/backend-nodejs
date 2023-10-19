@@ -20,7 +20,7 @@ app.get('/', async(req, res) => {
     res.setHeader('Content-type', 'application/json');
     const jsonResponse = JSON.stringify(responseObject);
     res.end(jsonResponse);
-})
+});
 
 app.get('/allbins', async (req, res) => { 
     const bins = await SmartBin.findAll({raw: true});
