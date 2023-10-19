@@ -11,6 +11,17 @@ app.use(express.json());
 //     timeToLive: 60 * 60 * 24
 // };
 
+app.get('/', async(req, res) => { 
+    const bins = await SmartBin.findAll({raw: true});
+    const responseObject = { 
+        message: 'Todas as lixeiras cadastradas', 
+        data: Object.values(bins).length === 0 ? [] : bins
+    }
+    res.setHeader('Content-type', 'application/json');
+    const jsonResponse = JSON.stringify(responseObject);
+    res.end(jsonResponse);
+})
+
 app.get('/allbins', async (req, res) => { 
     const bins = await SmartBin.findAll({raw: true});
     const responseObject = { 
