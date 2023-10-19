@@ -89,10 +89,8 @@ app.put('/updateDetection/:identidade', (req, res) => {
 
 // })
 
-
-
 conection.sync().then(
-    app.listen(3000, () => { 
+    app.listen(5000, () => { 
         console.log('api rodando');
     })
 ).catch((err) => console.log(err));
